@@ -1,0 +1,102 @@
+# github.com/ActiveState/termtest/conpty v0.5.0
+## explicit; go 1.12
+# github.com/AudriusButkevicius/pfilter v0.0.0-20210515103320-4b4b86609d51
+## explicit; go 1.15
+# github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78
+## explicit
+# github.com/VictoriaMetrics/metrics v1.18.0
+## explicit; go 1.12
+# github.com/ccding/go-stun/stun v0.0.0-20200514191101-4dc67bcdb029
+## explicit; go 1.14
+# github.com/creack/pty v1.1.15
+## explicit; go 1.13
+# github.com/davecgh/go-spew v1.1.1
+## explicit
+# github.com/go-chi/chi v4.1.2+incompatible
+## explicit
+# github.com/google/uuid v1.1.2
+## explicit
+# github.com/json-iterator/go v1.1.12
+## explicit; go 1.12
+# github.com/klauspost/compress v1.11.0
+## explicit; go 1.13
+# github.com/klauspost/cpuid v1.2.4
+## explicit
+# github.com/klauspost/reedsolomon v1.9.9
+## explicit; go 1.14
+# github.com/mattn/go-colorable v0.1.11
+## explicit; go 1.13
+github.com/mattn/go-colorable
+# github.com/mattn/go-isatty v0.0.14
+## explicit; go 1.12
+github.com/mattn/go-isatty
+# github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d
+## explicit
+github.com/mgutz/ansi
+# github.com/mmcloughlin/avo v0.0.0-20200523190732-4439b6b2c061
+## explicit; go 1.11
+# github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+## explicit
+# github.com/modern-go/reflect2 v1.0.2
+## explicit; go 1.12
+# github.com/pkg/errors v0.9.1
+## explicit
+# github.com/pmezard/go-difflib v1.0.0
+## explicit
+# github.com/sirupsen/logrus v1.8.1
+## explicit; go 1.13
+github.com/sirupsen/logrus
+# github.com/skycoin/dmsg v0.0.0-20220125173526-46bb07d7fd64
+## explicit; go 1.16
+# github.com/skycoin/noise v0.0.0-20180327030543-2492fe189ae6
+## explicit
+# github.com/skycoin/skycoin v0.27.1
+## explicit
+github.com/skycoin/skycoin/src/util/logging
+# github.com/skycoin/skywire v0.6.0
+## explicit; go 1.17
+github.com/skycoin/skywire/pkg/util/netutil
+# github.com/skycoin/yamux v0.0.0-20200803175205-571ceb89da9f
+## explicit; go 1.13
+# github.com/stretchr/objx v0.1.1
+## explicit
+# github.com/stretchr/testify v1.7.0
+## explicit; go 1.13
+# github.com/templexxx/cpufeat v0.0.0-20180724012125-cef66df7f161
+## explicit
+# github.com/templexxx/xor v0.0.0-20191217153810-f85b25db303b
+## explicit
+# github.com/tjfoc/gmsm v1.4.0
+## explicit; go 1.14
+# github.com/valyala/fastrand v1.1.0
+## explicit
+# github.com/valyala/histogram v1.2.0
+## explicit; go 1.12
+# github.com/xtaci/kcp-go v5.4.20+incompatible
+## explicit
+# go.etcd.io/bbolt v1.3.6
+## explicit; go 1.12
+# golang.org/x/crypto v0.0.0-20210921155107-089bfa567519
+## explicit; go 1.17
+golang.org/x/crypto/ssh/terminal
+# golang.org/x/mod v0.4.2
+## explicit; go 1.12
+# golang.org/x/net v0.0.0-20211020060615-d418f374d309
+## explicit; go 1.17
+# golang.org/x/sys v0.0.0-20211020174200-9d6173849985
+## explicit; go 1.17
+golang.org/x/sys/internal/unsafeheader
+golang.org/x/sys/plan9
+golang.org/x/sys/unix
+golang.org/x/sys/windows
+# golang.org/x/term v0.0.0-20210927222741-03fcf44c2211
+## explicit; go 1.17
+golang.org/x/term
+# golang.org/x/tools v0.1.2
+## explicit; go 1.17
+# golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1
+## explicit; go 1.11
+# gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
+## explicit
+# nhooyr.io/websocket v1.8.2
+## explicit; go 1.13
