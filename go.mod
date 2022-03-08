@@ -6,6 +6,7 @@ require (
 	github.com/VictoriaMetrics/metrics v1.18.1
 	github.com/go-chi/chi/v5 v5.0.7
 	github.com/json-iterator/go v1.1.12
+	github.com/pires/go-proxyproto v0.6.2
 	github.com/sirupsen/logrus v1.8.1
 	github.com/skycoin/skycoin v0.27.1
 	github.com/spf13/cobra v1.3.0
