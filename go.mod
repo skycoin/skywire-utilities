@@ -4,13 +4,15 @@ go 1.17
 
 require (
 	github.com/VictoriaMetrics/metrics v1.18.1
+	github.com/go-chi/chi v1.5.4
 	github.com/go-chi/chi/v5 v5.0.7
+	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/json-iterator/go v1.1.12
 	github.com/sirupsen/logrus v1.8.1
 	github.com/skycoin/skycoin v0.27.1
 	github.com/spf13/cobra v1.3.0
 	github.com/stretchr/testify v1.7.0
-	golang.org/x/sys v0.0.0-20211205182925-97ca703d548d
+	golang.org/x/sys v0.0.0-20211216021012-1d35b9e2eb4e
 )
 
 require (
@@ -23,6 +25,8 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
+	github.com/onsi/ginkgo v1.16.5 // indirect
+	github.com/onsi/gomega v1.18.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/valyala/fastrand v1.1.0 // indirect
