@@ -117,6 +117,12 @@ func MakeMiddleware(store NonceStore) func(next http.Handler) http.Handler {
 	return makeMiddleware(store, true)
 }
 
+// PKFromCtx is a convenience function to obtain PK from ctx.
+func PKFromCtx(ctx context.Context) cipher.PubKey {
+	pk, _ := ctx.Value(ContextAuthKey).(cipher.PubKey)
+	return pk
+}
+
 // MakeLoadTestingMiddleware is the same as `MakeMiddleware` but omits auth checks to simplify load testing.
 func MakeLoadTestingMiddleware(store NonceStore) func(next http.Handler) http.Handler {
 	return makeMiddleware(store, false)
