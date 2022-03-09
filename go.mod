@@ -4,7 +4,6 @@ go 1.17
 
 require (
 	github.com/VictoriaMetrics/metrics v1.18.1
-	github.com/go-chi/chi v1.5.4
 	github.com/go-chi/chi/v5 v5.0.7
 	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/json-iterator/go v1.1.12
