@@ -43,7 +43,7 @@ const (
 	TestUptimeTrackerAddr   = "http://ut.skywire.dev"
 	TestAddressResolverAddr = "http://ar.skywire.dev"
 	TestSetupPK             = "026c2a3e92d6253c5abd71a42628db6fca9dd9aa037ab6f4e3a31108558dfd87cf"
-	TestNetworkMonitorPK    = ""
+	TestNetworkMonitorPK    = "0218905f5d9079bab0b62985a05bd162623b193e948e17e7b719133f2c60b92093"
 )
 
 // Dmsg port constants.
