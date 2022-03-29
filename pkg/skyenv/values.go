@@ -1,12 +1,5 @@
 package skyenv
 
-import (
-	"path/filepath"
-	"time"
-
-	"github.com/skycoin/skywire-utilities/pkg/cipher"
-)
-
 // Constants for old default services. (for which version?)
 const (
 	OldDefaultTpDiscAddr          = "http://transport.discovery.skywire.skycoin.com"
@@ -16,9 +9,10 @@ const (
 	OldDefaultUptimeTrackerAddr   = "http://uptime-tracker.skywire.skycoin.com"
 	OldDefaultAddressResolverAddr = "http://address.resolver.skywire.skycoin.com"
 )
+
 // Constants for new default services.
 const (
-	DefaultServiceConfAddr				= "http://skywire.skycoin.com"
+	DefaultServiceConfAddr     = "http://conf.skywire.skycoin.com"
 	DefaultTpDiscAddr          = "http://tpd.skywire.skycoin.com"
 	DefaultDmsgDiscAddr        = "http://dmsgd.skywire.skycoin.com"
 	DefaultServiceDiscAddr     = "http://sd.skycoin.com"
@@ -28,9 +22,10 @@ const (
 	DefaultSetupPK             = "0324579f003e6b4048bae2def4365e634d8e0e3054a20fc7af49daf2a179658557"
 	DefaultNetworkMonitorPKs   = ""
 )
+
 // Constants for testing deployment.
 const (
-	TestServiceConfAddr				= "http://skywire.dev"
+	TestServiceConfAddr     = "http://conf.skywire.dev"
 	TestTpDiscAddr          = "http://tpd.skywire.dev"
 	TestDmsgDiscAddr        = "http://dmsgd.skywire.dev"
 	TestServiceDiscAddr     = "http://sd.skywire.dev"
