@@ -16,7 +16,7 @@ type redisStore struct {
 	prefix string
 }
 
-func newRedisStore(addr, password, prefix string) (*redisStore, error) {
+func newRedisStore(addr, password string) (*redisStore, error) {
 	opt, err := redis.ParseURL(addr)
 	if err != nil {
 		return nil, fmt.Errorf("addr: %w", err)
@@ -29,10 +29,6 @@ func newRedisStore(addr, password, prefix string) (*redisStore, error) {
 	opt.IdleCheckFrequency = 5 * time.Second
 	opt.PoolSize = 200
 
-	if prefix != "" {
-		prefix += ":"
-	}
-
 	redisCl := redis.NewClient(opt)
 	if err := redisCl.Ping().Err(); err != nil {
 		log.Fatalf("Failed to connect to Redis cluster: %v", err)
@@ -40,7 +36,6 @@ func newRedisStore(addr, password, prefix string) (*redisStore, error) {
 
 	store := &redisStore{
 		client: redisCl,
-		prefix: prefix,
 	}
 
 	return store, nil
