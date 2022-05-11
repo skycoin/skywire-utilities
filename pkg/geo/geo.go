@@ -76,8 +76,8 @@ func MakeIPDetails(log logrus.FieldLogger, apiKey string) LocationDetails {
 
 		// Prepare output.
 		out := LocationData{
-			Lat:     roundLocation(j.Lat),
-			Lon:     roundLocation(j.Lon),
+			Lat:     roundTwoDigits(j.Lat),
+			Lon:     roundTwoDigits(j.Lon),
 			Country: j.CountryCode,
 			Region:  j.Region,
 		}
@@ -87,6 +87,6 @@ func MakeIPDetails(log logrus.FieldLogger, apiKey string) LocationDetails {
 	}
 }
 
-func roundLocation(value float64) float64 {
+func roundTwoDigits(value float64) float64 {
 	return math.Round(value*100) / 100
 }
