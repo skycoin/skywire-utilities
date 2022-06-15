@@ -38,6 +38,8 @@ func LevelFromString(s string) (logrus.Level, error) {
 		return logrus.FatalLevel, nil
 	case "panic":
 		return logrus.PanicLevel, nil
+	case "trace":
+		return logrus.TraceLevel, nil
 	default:
 		return logrus.DebugLevel, errors.New("could not convert string to log level")
 	}
