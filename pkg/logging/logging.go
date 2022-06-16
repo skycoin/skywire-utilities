@@ -70,6 +70,11 @@ func SetLevel(level logrus.Level) {
 	log.SetLevel(level)
 }
 
+// GetLevel returns the logger level
+func GetLevel() logrus.Level {
+	return log.GetLevel()
+}
+
 // SetOutputTo sets the logger's output to an io.Writer
 func SetOutputTo(w io.Writer) {
 	log.Out = w
