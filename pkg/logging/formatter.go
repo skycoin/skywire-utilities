@@ -26,7 +26,7 @@ var (
 		FatalLevelStyle:  "red",
 		PanicLevelStyle:  "red",
 		DebugLevelStyle:  "blue",
-		TraceLevelStyle:  "blue+h",
+		TraceLevelStyle:  "black",
 		PrefixStyle:      "cyan",
 		TimestampStyle:   "black+h",
 		CallContextStyle: "black+h",
