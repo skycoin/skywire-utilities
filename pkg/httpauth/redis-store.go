@@ -13,9 +13,10 @@ import (
 
 type redisStore struct {
 	client *redis.Client
+	prefix string
 }
 
-func newRedisStore(addr, password string) (*redisStore, error) {
+func newRedisStore(addr, password, prefix string) (*redisStore, error) {
 	opt, err := redis.ParseURL(addr)
 	if err != nil {
 		return nil, fmt.Errorf("addr: %w", err)
@@ -28,6 +29,10 @@ func newRedisStore(addr, password string) (*redisStore, error) {
 	opt.IdleCheckFrequency = 5 * time.Second
 	opt.PoolSize = 200
 
+	if prefix != "" {
+		prefix += ":"
+	}
+
 	redisCl := redis.NewClient(opt)
 	if err := redisCl.Ping().Err(); err != nil {
 		log.Fatalf("Failed to connect to Redis cluster: %v", err)
@@ -35,13 +40,18 @@ func newRedisStore(addr, password string) (*redisStore, error) {
 
 	store := &redisStore{
 		client: redisCl,
+		prefix: prefix,
 	}
 
 	return store, nil
 }
 
+func (s *redisStore) key(v string) string {
+	return s.prefix + v
+}
+
 func (s *redisStore) Nonce(_ context.Context, remotePK cipher.PubKey) (Nonce, error) {
-	nonce, err := s.client.Get(fmt.Sprintf("nonces:%s", remotePK)).Result()
+	nonce, err := s.client.Get(s.key(fmt.Sprintf("nonces:%s", remotePK))).Result()
 	if err != nil {
 		return 0, nil
 	}
@@ -54,12 +64,12 @@ func (s *redisStore) Nonce(_ context.Context, remotePK cipher.PubKey) (Nonce, er
 }
 
 func (s *redisStore) IncrementNonce(_ context.Context, remotePK cipher.PubKey) (Nonce, error) {
-	nonce, err := s.client.Incr(fmt.Sprintf("nonces:%s", remotePK)).Result()
+	nonce, err := s.client.Incr(s.key(fmt.Sprintf("nonces:%s", remotePK))).Result()
 	if err != nil {
 		return 0, fmt.Errorf("redis: %w", err)
 	}
 
-	_, err = s.client.SAdd("nonces", remotePK).Result()
+	_, err = s.client.SAdd(s.key("nonces"), remotePK).Result()
 	if err != nil {
 		return 0, fmt.Errorf("redis: %w", err)
 	}
@@ -68,7 +78,7 @@ func (s *redisStore) IncrementNonce(_ context.Context, remotePK cipher.PubKey) (
 }
 
 func (s *redisStore) Count(ctx context.Context) (n int, err error) {
-	size, err := s.client.SCard("nonces").Result()
+	size, err := s.client.SCard(s.key("nonces")).Result()
 	if err != nil {
 		return 0, fmt.Errorf("redis: %w", err)
 	}
