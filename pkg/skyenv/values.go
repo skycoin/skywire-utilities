@@ -37,5 +37,9 @@ func GetStunServers() []string {
 		"172.104.188.39:3478",
 		"172.104.188.140:3478",
 		"172.104.40.88:3478",
+		"194.147.142.202:3478",
 	}
 }
+
+// DNSServer is value for DNS Server Address
+const DNSServer = "1.1.1.1"
