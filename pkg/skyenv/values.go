@@ -10,7 +10,7 @@ const (
 	UptimeTrackerAddr   = "http://ut.skywire.skycoin.com"
 	AddressResolverAddr = "http://ar.skywire.skycoin.com"
 	SetupPK             = "0324579f003e6b4048bae2def4365e634d8e0e3054a20fc7af49daf2a179658557"
-	NetworkMonitorPKs   = ""
+	NetworkMonitorPKs   = "0380ea88f0ad0aa4d93c330ba5f97aabca1d892190b94db69eee140b549d2817dd"
 )
 
 // Constants for testing deployment.
