@@ -26,7 +26,7 @@ const (
 	TestNetworkMonitorPK    = "0218905f5d9079bab0b62985a05bd162623b193e948e17e7b719133f2c60b92093"
 )
 
-// GetStunServers gives back deafault Stun Servers
+// GetStunServers gives back default Stun Servers
 func GetStunServers() []string {
 	return []string{
 		"192.46.224.108:3478",
