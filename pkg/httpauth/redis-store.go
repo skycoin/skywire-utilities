@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/go-redis/redis"
+	"github.com/go-redis/redis/v8"
 	"github.com/skycoin/skywire-utilities/pkg/cipher"
 )
 
@@ -16,7 +16,7 @@ type redisStore struct {
 	prefix string
 }
 
-func newRedisStore(addr, password, prefix string) (*redisStore, error) {
+func newRedisStore(ctx context.Context, addr, password, prefix string) (*redisStore, error) {
 	opt, err := redis.ParseURL(addr)
 	if err != nil {
 		return nil, fmt.Errorf("addr: %w", err)
@@ -34,7 +34,7 @@ func newRedisStore(addr, password, prefix string) (*redisStore, error) {
 	}
 
 	redisCl := redis.NewClient(opt)
-	if err := redisCl.Ping().Err(); err != nil {
+	if err := redisCl.Ping(ctx).Err(); err != nil {
 		log.Fatalf("Failed to connect to Redis cluster: %v", err)
 	}
 
@@ -50,8 +50,8 @@ func (s *redisStore) key(v string) string {
 	return s.prefix + v
 }
 
-func (s *redisStore) Nonce(_ context.Context, remotePK cipher.PubKey) (Nonce, error) {
-	nonce, err := s.client.Get(s.key(fmt.Sprintf("nonces:%s", remotePK))).Result()
+func (s *redisStore) Nonce(ctx context.Context, remotePK cipher.PubKey) (Nonce, error) {
+	nonce, err := s.client.Get(ctx, s.key(fmt.Sprintf("nonces:%s", remotePK))).Result()
 	if err != nil {
 		return 0, nil
 	}
@@ -63,13 +63,13 @@ func (s *redisStore) Nonce(_ context.Context, remotePK cipher.PubKey) (Nonce, er
 	return Nonce(n), nil
 }
 
-func (s *redisStore) IncrementNonce(_ context.Context, remotePK cipher.PubKey) (Nonce, error) {
-	nonce, err := s.client.Incr(s.key(fmt.Sprintf("nonces:%s", remotePK))).Result()
+func (s *redisStore) IncrementNonce(ctx context.Context, remotePK cipher.PubKey) (Nonce, error) {
+	nonce, err := s.client.Incr(ctx, s.key(fmt.Sprintf("nonces:%s", remotePK))).Result()
 	if err != nil {
 		return 0, fmt.Errorf("redis: %w", err)
 	}
 
-	_, err = s.client.SAdd(s.key("nonces"), remotePK).Result()
+	_, err = s.client.SAdd(ctx, s.key("nonces"), remotePK).Result()
 	if err != nil {
 		return 0, fmt.Errorf("redis: %w", err)
 	}
@@ -78,7 +78,7 @@ func (s *redisStore) IncrementNonce(_ context.Context, remotePK cipher.PubKey) (
 }
 
 func (s *redisStore) Count(ctx context.Context) (n int, err error) {
-	size, err := s.client.SCard(s.key("nonces")).Result()
+	size, err := s.client.SCard(ctx, s.key("nonces")).Result()
 	if err != nil {
 		return 0, fmt.Errorf("redis: %w", err)
 	}

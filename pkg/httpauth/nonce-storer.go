@@ -30,10 +30,10 @@ type NonceStore interface {
 
 // NewNonceStore returns a new nonce storer of the given kind that connects to given Store's url.
 // Nonce count should not be shared between services, so it should be stored in a unique key for every service.
-func NewNonceStore(config storeconfig.Config, prefix string) (NonceStore, error) {
+func NewNonceStore(ctx context.Context, config storeconfig.Config, prefix string) (NonceStore, error) {
 	switch config.Type {
 	case storeconfig.Redis:
-		return newRedisStore(config.URL, config.Password, prefix)
+		return newRedisStore(ctx, config.URL, config.Password, prefix)
 	case storeconfig.Memory:
 		return newMemoryStore(), nil
 	}
