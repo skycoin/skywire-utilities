@@ -4,7 +4,7 @@ package httputil
 import (
 	"bytes"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 )
 
@@ -25,7 +25,7 @@ func ErrorFromResp(resp *http.Response) error {
 	if status >= 200 && status < 300 {
 		return nil
 	}
-	msg, err := ioutil.ReadAll(resp.Body)
+	msg, err := io.ReadAll(resp.Body)
 	if err != nil && len(msg) == 0 {
 		msg = []byte(fmt.Sprintf("failed to read HTTP response body: %v", err))
 	}

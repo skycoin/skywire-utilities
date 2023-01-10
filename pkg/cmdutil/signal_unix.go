@@ -2,7 +2,6 @@
 // +build !windows
 
 // Package cmdutil pkg/cmdutil/signal_unix.go
-
 package cmdutil
 
 import (
