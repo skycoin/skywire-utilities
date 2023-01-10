@@ -1,3 +1,4 @@
+// Package cmdutil pkg/cmdutil/service_flags_test.go
 package cmdutil
 
 import (

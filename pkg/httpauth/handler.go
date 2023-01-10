@@ -1,3 +1,4 @@
+// Package httpauth pkg/httpauth/handler.go
 package httpauth
 
 import (

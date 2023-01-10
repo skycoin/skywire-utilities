@@ -1,3 +1,4 @@
+// Package httputil pkg/httputil/error.go
 package httputil
 
 import (

@@ -1,3 +1,4 @@
+// Package cmdutil pkg/cmdutil/catch_test.go
 package cmdutil
 
 import (
