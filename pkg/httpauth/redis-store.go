@@ -1,3 +1,4 @@
+// Package httpauth pkg/httpauth/redis-store.go
 package httpauth
 
 import (
