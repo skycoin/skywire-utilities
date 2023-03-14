@@ -1,3 +1,4 @@
+// Package httpauth pkg/httpauth/auth.go
 package httpauth
 
 import (
@@ -5,7 +6,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"strconv"
 
@@ -89,7 +89,7 @@ func verifyAuth(store NonceStore, r *http.Request, auth *Auth) error {
 	var buf bytes.Buffer
 	body := io.TeeReader(r.Body, &buf)
 
-	payload, err := ioutil.ReadAll(body)
+	payload, err := io.ReadAll(body)
 	if err != nil {
 		return err
 	}
@@ -99,7 +99,7 @@ func verifyAuth(store NonceStore, r *http.Request, auth *Auth) error {
 		return err
 	}
 
-	r.Body = ioutil.NopCloser(&buf)
+	r.Body = io.NopCloser(&buf)
 
 	return auth.Verify(payload)
 }
