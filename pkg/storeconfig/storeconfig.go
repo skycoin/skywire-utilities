@@ -1,3 +1,4 @@
+// Package storeconfig pkg/storeconfig/storeconfig.go
 package storeconfig
 
 import "os"

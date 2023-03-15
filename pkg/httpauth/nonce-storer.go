@@ -1,3 +1,4 @@
+// Package httpauth pkg/httpauth/nonce-storer.go
 package httpauth
 
 import (

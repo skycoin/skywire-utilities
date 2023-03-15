@@ -1,3 +1,4 @@
+// Package buildinfo pkg/cipher/cipher_test.go
 package cipher
 
 import (
