@@ -1,3 +1,4 @@
+// Package geo pkg/geo/geo.go
 package geo
 
 import (
@@ -9,6 +10,7 @@ import (
 	"net/http"
 
 	"github.com/sirupsen/logrus"
+
 	"github.com/skycoin/skywire-utilities/pkg/logging"
 
 	"github.com/skycoin/skywire-utilities/pkg/netutil"
@@ -26,8 +28,8 @@ const (
 
 // LocationData represents a geolocation point.
 type LocationData struct {
-	Lat     float64 `json:"lat"`
-	Lon     float64 `json:"lon"`
+	Lat     float64 `json:"lat,omitempty"`
+	Lon     float64 `json:"lon,omitempty"`
 	Country string  `json:"country,omitempty"`
 	Region  string  `json:"region,omitempty"`
 }

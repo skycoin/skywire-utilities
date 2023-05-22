@@ -1,3 +1,4 @@
+// Package httpauth pkg/httpauth/memory_store.go
 package httpauth
 
 import (

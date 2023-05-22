@@ -1,3 +1,4 @@
+// Package httpauth pkg/httpauth/handler_test.go
 package httpauth
 
 import (
@@ -60,13 +61,14 @@ func invalidHeaders(t *testing.T, payload []byte) http.Header {
 
 func TestServer_Wrap(t *testing.T) {
 	storeConfig := storeconfig.Config{Type: storeconfig.Memory}
-	mock, err := NewNonceStore(storeConfig, "")
+	ctx := context.TODO()
+	mock, err := NewNonceStore(ctx, storeConfig, "")
 	require.NoError(t, err)
 
 	t.Run("Without headers", func(t *testing.T) {
 		defer func() {
 			storeConfig := storeconfig.Config{Type: storeconfig.Memory}
-			nmock, err := NewNonceStore(storeConfig, "")
+			nmock, err := NewNonceStore(ctx, storeConfig, "")
 			require.NoError(t, err)
 
 			mock = nmock
@@ -93,7 +95,7 @@ func TestServer_Wrap(t *testing.T) {
 	t.Run("Context has verified pubkey", func(t *testing.T) {
 		defer func() {
 			storeConfig := storeconfig.Config{Type: storeconfig.Memory}
-			nmock, err := NewNonceStore(storeConfig, "")
+			nmock, err := NewNonceStore(ctx, storeConfig, "")
 			require.NoError(t, err)
 
 			mock = nmock
@@ -126,7 +128,7 @@ func TestServer_Wrap(t *testing.T) {
 	t.Run("Valid", func(t *testing.T) {
 		defer func() {
 			storeConfig := storeconfig.Config{Type: storeconfig.Memory}
-			nmock, err := NewNonceStore(storeConfig, "")
+			nmock, err := NewNonceStore(ctx, storeConfig, "")
 			require.NoError(t, err)
 
 			mock = nmock
@@ -156,7 +158,7 @@ func TestServer_Wrap(t *testing.T) {
 		require.NoError(t, err)
 		defer func() {
 			storeConfig := storeconfig.Config{Type: storeconfig.Memory}
-			nmock, err := NewNonceStore(storeConfig, "")
+			nmock, err := NewNonceStore(ctx, storeConfig, "")
 			require.NoError(t, err)
 
 			mock = nmock
@@ -183,7 +185,7 @@ func TestServer_Wrap(t *testing.T) {
 		require.NoError(t, err)
 		defer func() {
 			storeConfig := storeconfig.Config{Type: storeconfig.Memory}
-			nmock, err := NewNonceStore(storeConfig, "")
+			nmock, err := NewNonceStore(ctx, storeConfig, "")
 			require.NoError(t, err)
 
 			mock = nmock
@@ -208,7 +210,7 @@ func TestServer_Wrap(t *testing.T) {
 	t.Run("Invalid signature", func(t *testing.T) {
 		defer func() {
 			storeConfig := storeconfig.Config{Type: storeconfig.Memory}
-			nmock, err := NewNonceStore(storeConfig, "")
+			nmock, err := NewNonceStore(ctx, storeConfig, "")
 			require.NoError(t, err)
 
 			mock = nmock

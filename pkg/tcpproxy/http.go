@@ -1,3 +1,4 @@
+// Package tcpproxy pkg/tcpproxy/tcpproxy.go
 package tcpproxy
 
 import (
@@ -9,7 +10,7 @@ import (
 
 // ListenAndServe starts http server with tcp proxy support
 func ListenAndServe(addr string, handler http.Handler) error {
-	srv := &http.Server{Addr: addr, Handler: handler}
+	srv := &http.Server{Addr: addr, Handler: handler} //nolint
 	if addr == "" {
 		addr = ":http"
 	}
