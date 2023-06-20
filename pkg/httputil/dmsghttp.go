@@ -3,7 +3,7 @@ package httputil
 
 // DMSGHTTPConf is struct of /dmsghttp endpoint of config bootstrap
 type DMSGHTTPConf struct {
-	DMSGServers        []dmsgServersConf `json:"dmsg_servers"`
+	DMSGServers        []DMSGServersConf `json:"dmsg_servers"`
 	DMSGDiscovery      string            `json:"dmsg_discovery"`
 	TranspordDiscovery string            `json:"transport_discovery"`
 	AddressResolver    string            `json:"address_resolver"`
@@ -12,7 +12,8 @@ type DMSGHTTPConf struct {
 	ServiceDiscovery   string            `json:"service_discovery"`
 }
 
-type dmsgServersConf struct {
+// DMSGServersConf is struct of dmsg servers list on /dmsghttp endpoint
+type DMSGServersConf struct {
 	Static string `json:"static"`
 	Server struct {
 		Address string `json:"address"`
