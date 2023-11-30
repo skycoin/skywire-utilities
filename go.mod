@@ -1,6 +1,6 @@
 module github.com/skycoin/skywire-utilities
 
-go 1.17
+go 1.21
 
 require (
 	github.com/VictoriaMetrics/metrics v1.18.1
